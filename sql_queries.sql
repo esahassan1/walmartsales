@@ -79,28 +79,27 @@ SET month_name = MONTHNAME(date);
 -- How many unique cities does the data have?
 SELECT 
 	DISTINCT city
-FROM WALMARTSALESDATA;                                                                      
+FROM sales;                                                                      
 
 -- In which city is each branch?
 SELECT 
 	DISTINCT city,
     branch
-FROM walmartsalesdata;
+FROM sales;
 
 -- --------------------------------------------------------------------
 -- ---------------------------- Product -------------------------------
 -- --------------------------------------------------------------------
-SELECT * FROM walmartsalesdata;
 -- How many unique product lines does the data have?
 SELECT DISTINCT PRODUCTLINE
-FROM walmartsalesdata;
+FROM sales;
 
 
 -- What is the most selling product line
 SELECT
 	SUM(quantity) as qty,
     product_line
-FROM walmartsalesdata
+FROM sales
 GROUP BY product_line
 ORDER BY qty DESC;
 
@@ -108,7 +107,7 @@ ORDER BY qty DESC;
 SELECT
 	SUM(quantity) as qty,
     product_line
-FROM walmartsalesdata
+FROM sales
 GROUP BY product_line
 ORDER BY qty DESC;
 
@@ -116,7 +115,7 @@ ORDER BY qty DESC;
 SELECT
 	month_name AS month,
 	SUM(total) AS total_revenue
-FROM walmartsalesdata
+FROM sales
 GROUP BY month_name 
 ORDER BY total_revenue;
 
@@ -125,7 +124,7 @@ ORDER BY total_revenue;
 SELECT
 	month_name AS month,
 	SUM(cogs) AS cogs
-FROM walmartsalesdata
+FROM sales
 GROUP BY month_name 
 ORDER BY cogs;
 
